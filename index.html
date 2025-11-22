@@ -6,192 +6,264 @@
   <title>Mabuhay Travels PH</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background-color: #ffffff;
-      color: #1a1a1a;
-    }
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-    /* Hero Section */
-    .hero {
-      background: url("https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1400&q=60")
-        center/cover no-repeat;
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-    }
+/* Hero Section */
+.hero {
+  background: url("https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1400&q=60")
+    center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  animation: fadeIn 1.5s ease-out;
+}
 
-    .hero h1 {
-      font-size: 3rem;
-      z-index: 2;
-      margin: 0;
-      color: #ffdd00;
-      text-shadow: 2px 2px 6px #000;
-    }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,56,168,0.7), rgba(206,17,38,0.6));
+}
 
-    .hero p {
-      font-size: 1.3rem;
-      z-index: 2;
-      margin-top: 10px;
-      color: #ffffff;
-      font-weight: 500;
-    }
+.hero h1 {
+  font-size: 3rem;
+  z-index: 2;
+  margin: 0;
+  color: #ffdd00;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+  animation: slideDown 1s ease-out;
+}
 
-    /* Section Titles */
-    h2 {
-      text-align: center;
-      margin-top: 40px;
-      color: #0038a8; /* Filipino Blue */
-    }
+.hero p {
+  font-size: 1.3rem;
+  z-index: 2;
+  margin-top: 10px;
+  color: #ffffff;
+  font-weight: 500;
+  animation: slideUp 1s ease-out;
+}
 
-    /* Packages Section */
-    .packages {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      padding: 40px 20px;
-      flex-wrap: wrap;
-    }
+/* Section Titles */
+h2 {
+  text-align: center;
+  margin-top: 40px;
+  color: #0038a8; /* Filipino Blue */
+  position: relative;
+}
 
-    .card {
-      width: 260px;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      text-align: center;
-      padding-bottom: 20px;
-      overflow: hidden;
-    }
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ce1126; /* Filipino Red */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
 
-    .card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
+/* Packages Section */
+.packages {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
 
-    .card h3 {
-      margin: 15px 0 10px;
-      color: #ce1126; /* Filipino Red */
-    }
+.card {
+  width: 260px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  padding-bottom: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
 
-    /* Services */
-    .services {
-      padding: 20px 40px;
-      max-width: 900px;
-      margin: auto;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
 
-    .services ul {
-      list-style: none;
-      padding: 0;
-    }
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
 
-    .services li {
-      padding-left: 25px;
-      position: relative;
-      margin-bottom: 10px;
-    }
+.card:hover img {
+  transform: scale(1.05);
+}
 
-    .services li::before {
-      content: "✔";
-      color: #ffdd00;
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
+.card h3 {
+  margin: 15px 0 10px;
+  color: #ce1126; /* Filipino Red */
+  font-weight: 600;
+}
 
-    /* About */
-    .about {
-      padding: 40px;
-      max-width: 900px;
-      margin: auto;
-      line-height: 1.7;
-      background: #f4f4f4;
-      border-radius: 12px;
-      margin-top: 40px;
-    }
+/* Services */
+.services {
+  padding: 20px 40px;
+  max-width: 900px;
+  margin: auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
 
-    /* Testimonials */
-    .testimonials {
-      background: #0038a8;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
+.services ul {
+  list-style: none;
+  padding: 0;
+}
 
-    .testimonials p {
-      max-width: 800px;
-      margin: auto;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
+.services li {
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
 
-    /* Form */
-    .contact-form {
-      width: 90%;
-      max-width: 600px;
-      margin: 50px auto;
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
+.services li::before {
+  content: "✔";
+  color: #ffdd00; /* Yellow */
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
 
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
+.services li:hover {
+  transform: translateX(5px);
+}
 
-    .contact-form button {
-      width: 100%;
-      padding: 12px;
-      background: #ce1126;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      margin-top: 10px;
-      cursor: pointer;
-    }
+/* About */
+.about {
+  padding: 40px;
+  max-width: 900px;
+  margin: 40px auto;
+  line-height: 1.7;
+  background: linear-gradient(120deg, #f4f4f4 0%, #ffffff 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  animation: fadeIn 1s ease-out;
+}
 
-    .contact-form button:hover {
-      background: #b10f21;
-    }
+/* Testimonials */
+.testimonials {
+  background: #0038a8; /* Blue */
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
 
-    /* Footer */
-    footer {
-      background: #1a1a1a;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      margin-top: 40px;
-    }
+.testimonials h2 {
+  color: #ffdd00; /* Yellow */
+}
 
-    footer a {
-      color: #ffdd00;
-      text-decoration: none;
-      padding: 0 10px;
-    }
-  </style>
+.testimonials p {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* Form */
+.contact-form {
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0038a8; /* Blue */
+  outline: none;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background: #ce1126; /* Red */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: #b10f21;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: #1a1a1a;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #ffdd00;
+  text-decoration: none;
+  padding: 0 10px;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ce1126;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
 
 <body>
@@ -207,19 +279,19 @@
 
   <section class="packages">
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=60" />
+      <img src="/assets/Beaches_Cebu.jpg" />
       <h3>3-Day Trip</h3>
       <p>Perfect quick escape with curated highlights.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=60" />
+      <img src="/assets/History_Lapulapu.jpg" />
       <h3>4-Day Trip</h3>
       <p>Experience more culture, food, and hidden gems.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1505739775777-31659821bd14?auto=format&fit=crop&w=800&q=60" />
+      <img src="/assets/Village_Tour.jpg" />
       <h3>5-Day Trip</h3>
       <p>The ultimate immersive tour of the Philippines.</p>
     </div>
